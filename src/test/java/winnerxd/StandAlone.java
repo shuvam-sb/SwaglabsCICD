@@ -5,12 +5,12 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
-import pageobjects.CartPage;
-import pageobjects.CheckOutPage;
-import pageobjects.ConfirmationPage;
-import pageobjects.LoginPage;
-import pageobjects.PaymentPage;
-import pageobjects.ProductCatalogue;
+import winnerxd.pageobjects.CartPage;
+import winnerxd.pageobjects.CheckOutPage;
+import winnerxd.pageobjects.ConfirmationPage;
+import winnerxd.pageobjects.LoginPage;
+import winnerxd.pageobjects.PaymentPage;
+import winnerxd.pageobjects.ProductCatalogue;
 
 public class StandAlone {
 
