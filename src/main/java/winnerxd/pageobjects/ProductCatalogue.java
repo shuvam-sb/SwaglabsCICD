@@ -1,5 +1,6 @@
 package winnerxd.pageobjects;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import winnerxd.abstractcomponents.AbstractComponent;
 
-public class ProductCatalogue extends AbstractComponent{
+public class ProductCatalogue extends AbstractComponent {
 	WebDriver driver;
 
 	public ProductCatalogue(WebDriver driver) {
@@ -31,6 +32,27 @@ public class ProductCatalogue extends AbstractComponent{
 							.equalsIgnoreCase(item))
 					.findFirst().ifPresent(product -> product.findElement(By.xpath(".//button")).click());
 		}
+	}
+
+	String productImgLink;
+	List<String> linkList;
+	public List<String> viewProductByImage(String item) {
+		linkList = new ArrayList<>();
+			products.stream().filter(product -> product.findElement(By.xpath(".//div[@class='inventory_item_name ']"))
+					.getText().equalsIgnoreCase(item)).findFirst().ifPresent(product -> {
+						// Capture the <a> link (href) before clicking
+						String linkProductElement = product.findElement(By.xpath(".//div[@class='inventory_item_img']//a//img")).getAttribute("src");
+						
+						linkList.add(linkProductElement);
+						
+						// Now click the link
+						product.findElement(By.xpath(".//div[@class='inventory_item_img']//a")).click();
+					});
+		
+		ProductInfoPage pInfo = new ProductInfoPage(driver);
+		String productInfoText = pInfo.checkImageLink(productImgLink);
+		linkList.add(productInfoText);
+		return linkList;
 	}
 
 }

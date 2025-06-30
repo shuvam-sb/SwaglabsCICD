@@ -1,0 +1,11 @@
+[
+	
+	{
+			"email" : "standard_user",
+			"password" : "secret_sauce",
+			"product" : ["Sauce Labs Backpack","Sauce Labs Bike Light"],
+			"firstName" : "Shuvam",
+			"lastName" : "Basak",
+			"zipCode" : "700118"
+	}
+]
